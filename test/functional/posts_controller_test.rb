@@ -79,6 +79,7 @@ class PostsControllerTest < Test::Unit::TestCase
       should_return_from_session :malarky, "nil"
       should_set_session :special, "'$2 off your next purchase'"
       should_set_session :special_user_id, '@user.id'
+      should_set_session(:false_var) { false }
       context "with a block" do
         should_set_session(:special_user_id) { @user.id }
       end
