@@ -75,6 +75,12 @@ class PostsControllerTest < Test::Unit::TestCase
       should_fail do
         should_return_from_session :special, "'not special'"
       end
+      should_fail do
+        should_set_session(:special) { nil }
+      end
+      should_fail do
+        should_return_from_session :special, "nil"
+      end
       should_set_session(:mischief) { nil }
       should_return_from_session :malarky, "nil"
       should_set_session :special, "'$2 off your next purchase'"

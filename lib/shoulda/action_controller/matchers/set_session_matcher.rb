@@ -54,8 +54,11 @@ module Shoulda # :nodoc:
         end
 
         def assigned_correct_value?
-          return true if @value.nil?
-          assigned_value == @value
+          !value_given? || assigned_value == @value
+        end
+
+        def value_given?
+          defined?(@value)
         end
 
         def assigned_value
