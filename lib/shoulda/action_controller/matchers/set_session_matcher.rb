@@ -39,7 +39,7 @@ module Shoulda # :nodoc:
 
         def description
           description = "set session variable #{@key.inspect}"
-          description << " to #{@value.inspect}" if defined?(@value)
+          description << " to #{@value.inspect}" if value_given?
           description
         end
 
@@ -50,7 +50,7 @@ module Shoulda # :nodoc:
         end
 
         def cleared_value?
-          defined?(@value) && @value.nil? && assigned_value.nil?
+          value_given? && @value.nil? && assigned_value.nil?
         end
 
         def assigned_correct_value?
